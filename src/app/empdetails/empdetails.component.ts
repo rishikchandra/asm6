@@ -20,12 +20,13 @@ export class EmpdetailsComponent implements OnInit {
   }
 
   editEmployee(id){
+
     this.router.navigate(['/empedit',id]);
   }
 
-  deleteEmployee(id){
-    this.empserv.deleteRecord(id).subscribe(data=>{
-      console.log(data);
+  deleteEmployee(_id){
+    this.empserv.deleteRecord(_id).subscribe(data=>{
+      console.log(data._id);
       this.empserv.getDetails().subscribe(data=>{
         this.empData = data;
       });

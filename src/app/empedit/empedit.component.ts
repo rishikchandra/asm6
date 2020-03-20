@@ -10,7 +10,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 })
 export class EmpeditComponent implements OnInit {
 
-  public id:number;
+  public id:string;
   empData:any;
   
   constructor(private activatedRoute:ActivatedRoute,private empserv:EmpservService, private router:Router) {
@@ -23,20 +23,25 @@ export class EmpeditComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params:ParamMap)=>{
-      let id = parseInt(params.get('id'));
-      this.id = id;
-    });
-    this.empserv.getById(this.id).subscribe(data=>{
-      this.empData = data;
-      console.log(this.empData);
-    })
+    // this.activatedRoute.paramMap.subscribe((params:ParamMap)=>{
+    //   let id = parseInt(params.get('id'));
+    //   this.id = id;
+    // });
+    // this.empserv.getById(this.id).subscribe(data=>{
+    //   this.empData = data;
+    //   console.log(this.empData);
+    // })
   }
 
   editEmployee(){
-    this.empserv.updateDetails(this.empData).subscribe(data=>{
+    this.activatedRoute.paramMap.subscribe((params:ParamMap)=>{
+      let bid = params.get('id');
+      console.log(bid);
+    
+    this.empserv.updateDetails(bid,this.empData).subscribe(data=>{
       console.log(data);
     });
+  });
     this.router.navigate(['/empdetails']);
   }
 

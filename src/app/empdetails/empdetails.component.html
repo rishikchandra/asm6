@@ -19,8 +19,8 @@
               <td>{{item.name | titlecase}}</td>
               <td>{{item.email}}</td>
               <td>{{item.age}}</td>
-              <td><button class="btn btn-secondary" (click)= "editEmployee(item.id)">EDIT</button></td>
-              <td><button class="btn btn-danger" (click)= "deleteEmployee(item.id)">DELETE</button></td>
+              <td><button class="btn btn-secondary" (click)= "editEmployee(item._id)">EDIT</button></td>
+              <td><button class="btn btn-danger" (click)= "deleteEmployee(item._id)">DELETE</button></td>
             </tr>
         </table>
       </div>

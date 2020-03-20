@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'',redirectTo:'/empadd',pathMatch:'full'},
   {path:'emplist',component:EmplistComponent},
   {path:'empadd',component:EmpaddComponent},
-  {path:'empedit',component:EmpeditComponent},
+  {path:'empedit/:id',component:EmpeditComponent},
   {path:'empdetails',component:EmpdetailsComponent}
 ];
 
